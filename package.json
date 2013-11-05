@@ -1,0 +1,12 @@
+{
+    "name": "mixin",
+    "version": "1.0.0",
+    "repository": {
+        "url": "https://github.com/akira-cn/mixin.js",
+        "type": "git"
+    },
+    "homepage": "https://github.com/akira-cn/mixin.js",
+    "maintainers": ["wuliang <wuliang@360.cn>"],
+    "description": "提供一个比较高级的mixin",
+    "output": "mixin.js"
+}
