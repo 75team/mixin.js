@@ -1,10 +1,13 @@
 { 
-    "name": "mixin",
+    "name": "node-mixin",
     "description": "copy properties from an object to another",
     "version": "1.0.0",
     "repository": {
         "url": "https://github.com/akira-cn/mixin.js",
         "type": "git"
+    },
+    "dependencies": {
+        
     },
     "homepage": "https://github.com/akira-cn/mixin.js",
     "maintainers": ["wuliang <wuliang@360.cn>"],
