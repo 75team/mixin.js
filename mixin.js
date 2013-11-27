@@ -1,5 +1,5 @@
 (function(define, global) { 'use strict';
-	define(function (require) {
+	define(function () {
 		return function(des, src, map){
 			if(typeof des !== 'object' 
 				&& typeof des !== 'function'){
@@ -33,12 +33,26 @@
 		}
 	});
 }) (
-	typeof define === 'function' && define.amd ? define : function (factory) { 
-		if(typeof module != 'undefined'){
-			module.exports = factory(require); 
-		}else if(typeof window != 'undefined'){
-			window.mixin = factory();
-		}
+	typeof define === 'function' && define.amd ? define : function (name, requires, factory) { 
+	    if(typeof name === 'function') {
+	        factory = name, name = undefined, requires = [];
+	    } else if(typeof requires === 'function') {
+	        factory = requires, requires = [];
+	    }
+
+	    if(typeof module != 'undefined' && module.exports){
+	    	var _requires = [];
+	    	for(var i = 0; i < requires.length; i++){
+	    		_requires.push(require(requires[i]));
+	    	}
+	      	module.exports = factory.apply(this, _requires); 
+	    }else if(typeof window != 'undefined'){
+	    	var _requires = [];
+	    	for(var i = 0; i < requires.length; i++){
+	    		_requires.push(window[requires[i]]);
+	    	}	        
+	        window[name || 'mixin'] = factory.apply(this, _requires);
+	    }
 	},
 	this
 );
